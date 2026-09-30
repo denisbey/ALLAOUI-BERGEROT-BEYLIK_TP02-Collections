@@ -74,4 +74,8 @@ public class Groupe {
         this.triAlpha();
         Collections.reverse(this.etudiants);
     }
+
+    public void triParMerite() {
+    Collections.sort(this.etudiants, new ComparateurMerite());
+    }
 }

@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Groupe {
+
     private Formation formation;
     private List<Etudiant> etudiants;
 
@@ -20,7 +21,8 @@ public class Groupe {
     }
 
     public boolean ajouterEtudiant(Etudiant etudiant) {
-        if (!this.formation.getIdentifiant().equals(etudiant.getFormation().getIdentifiant())) {
+        if (!this.formation.getIdentifiant()
+                .equals(etudiant.getFormation().getIdentifiant())) {
             return false;
         }
 
@@ -71,9 +73,5 @@ public class Groupe {
     public void triAntiAlpha() {
         this.triAlpha();
         Collections.reverse(this.etudiants);
-    }
-
-    public void triParMerite() {
-        Collections.sort(this.etudiants, new ComparateurMerite());
     }
 }

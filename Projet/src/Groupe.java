@@ -20,7 +20,6 @@ public class Groupe {
     }
 
     public boolean ajouterEtudiant(Etudiant etudiant) {
-
         if (!this.formation.getIdentifiant()
                 .equals(etudiant.getFormation().getIdentifiant())) {
             return false;
@@ -32,5 +31,37 @@ public class Groupe {
 
     public boolean supprimerEtudiant(Etudiant etudiant) {
         return this.etudiants.remove(etudiant);
+    }
+
+    public double moyenneMatiere(String matiere) {
+        if (!this.formation.contientMatiere(matiere)) {
+            return -1;
+        }
+
+        if (this.etudiants.isEmpty()) {
+            return 0;
+        }
+
+        double somme = 0;
+
+        for (Etudiant etudiant : this.etudiants) {
+            somme += etudiant.moyenneMatiere(matiere);
+        }
+
+        return somme / this.etudiants.size();
+    }
+
+    public double moyenneGenerale() {
+        if (this.etudiants.isEmpty()) {
+            return 0;
+        }
+
+        double somme = 0;
+
+        for (Etudiant etudiant : this.etudiants) {
+            somme += etudiant.moyenneGenerale();
+        }
+
+        return somme / this.etudiants.size();
     }
 }

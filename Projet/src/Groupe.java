@@ -63,17 +63,4 @@ public class Groupe {
 
         return somme / this.etudiants.size();
     }
-
-    public void triAlpha() {
-        Collections.sort(this.etudiants, new ComparateurNom());
-    }
-
-    public void triAntiAlpha() {
-        this.triAlpha();
-        Collections.reverse(this.etudiants);
-    }
-
-    public void triParMerite() {
-        Collections.sort(this.etudiants, new ComparateurMerite());
-    }
 }
